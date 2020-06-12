@@ -81,7 +81,7 @@ class RectorCommand extends BaseCommand
         $rules = (string)$args->getOption('rules');
         $path = realpath((string)$args->getArgument('path'));
 
-        $cmdPath = ROOT . '/vendor/bin/rector process';
+        $cmdPath = str_replace(' ', '\ ', ROOT) . '/vendor/bin/rector process';
         $command = sprintf(
             '%s %s --autoload-file=%s --set=%s --working-dir=%s %s',
             $cmdPath,
